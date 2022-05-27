@@ -33,13 +33,10 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
 
     const tags = options.tags.split(',');
 
-    // Make Request Here (Find a way to do concurent requests)
-    // Then Remove Duplicates
+    
     console.log(tags)
     let data = await fetchWithCache(tags,1000000000000)
-    data = [...new Set(...data)]
     console.log(data)
-    // Then Sort Responses By Param (Quick Sort)
     if (options.sortBy) {
         if (options.direction === "desc") {
             sortedResponse = data.sort(sortby(`${options.sortBy}`,true,parseInt))
