@@ -15,9 +15,10 @@ async function fetchTagInfo(tags) {
   console.log("here fetch")
     const promises = tags.map((tag) => {
         fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
+        console.log("res",res)
         return res.json()
     }).then((json) => {
-    
+      console.log(json)
       data_arr.push(json)
     })
 })
