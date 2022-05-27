@@ -18,11 +18,11 @@ async function fetchTagInfo(tags) {
     }).then((json) => {
       console.log("json",json)
       data_arr.push(json["posts"])
-      console.log("arr inside fetch", data_arr)
 
     })
 })
 await Promise.all(promises)
+console.log("arr outside fetch", data_arr)
 return data_arr
 }
 
