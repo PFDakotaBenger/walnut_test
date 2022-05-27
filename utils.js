@@ -7,7 +7,7 @@ async function fetchWithCache(id, time) {
     cache[id] = await fetchTagInfo(id)
     return cache[id]
 
-  } else {return cache[id]}
+  } else { return cache[id] }
   } 
 
 async function fetchTagInfo(tags) {
