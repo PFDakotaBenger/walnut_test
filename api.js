@@ -36,7 +36,11 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
     
     console.log(tags)
     let data = await fetchWithCache(tags,1000000000000)
-    data = getUniqueListBy(data, "id")
+    let newdata = []
+    for (let x = 0; x < data.length - 1; x++) {
+            newquerydata = getUniqueListBy(data[x], "id")
+            newdata.push(newquerydata)
+}
     console.log(data)
     if (options.sortBy) {
         if (options.direction === "desc") {
@@ -44,7 +48,7 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
         } else {
             sortedResponse = data.sort(sortby(`${options.sortBy}`,false,parseInt))
 
-        }
+        }   
         } else {
             if (options.direction === "desc") {
                 sortedResponse = data.sort(sortby("id",true,parseInt))
