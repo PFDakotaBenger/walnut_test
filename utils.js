@@ -6,7 +6,7 @@ async function fetchWithCache(id, time) {
   if (!(cache[id] === id)) {
     cache[id] = await fetchTagInfo(id)
 
-  } else return cache[id]
+  } else {return cache[id]}
   } 
 
 async function fetchTagInfo(tags) {
@@ -15,7 +15,7 @@ async function fetchTagInfo(tags) {
         fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
         return res.json()
     }).then((json) => {
-      console.log(json)
+      console.log("json",json)
       return data_arr.push(json)
     })
 })
