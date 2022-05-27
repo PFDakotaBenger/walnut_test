@@ -4,11 +4,10 @@ const cache = require("./api")
 async function fetchWithCache(id, time) {
   console.log("here")
   const now = new Date().getTime()
-  if (!(id in cache) && !((cache[id] === id) || cache[id]["cacheTimer"] < now)) {
+  if (!cache[id] === id) {
     cache[id] = await fetchTagInfo(id)
-    cache[id].cacheTimer = getCacheTimer(time)
-  }
-return cache[id]
+
+  } else return cache[id]
   } 
 
 async function fetchTagInfo(tags) { 
@@ -24,13 +23,6 @@ async function fetchTagInfo(tags) {
 const data = await Promise.all(promises)
 return data
 }
-function getCacheTimer(time) {
-    const now = new Date().getTime()
-    if (cacheTimer < now + time) {
-      cacheTimer = now + time
-    }
-    return cacheTimer
-  }
 
 
 
