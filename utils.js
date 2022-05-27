@@ -2,6 +2,7 @@
 const cache = require("./api")
 
 async function fetchWithCache(id, time) {
+  console.log("here")
   const now = new Date().getTime()
   if (id in cache && !((cache[id].id === id) || cache[id]["cacheTimer"] < now)) {
     cache[id] = await fetchTagInfo(id)
