@@ -36,7 +36,7 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
     // Then Remove Duplicates
     console.log(tags)
     let data = await fetchWithCache(tags,1000000000000)
-    data = [...new Set(data.posts)]
+    data = [...new Set(...data)]
 
     // Then Sort Responses By Param (Quick Sort)
     if (options.sortBy) {
