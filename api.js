@@ -36,12 +36,8 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
     
     console.log(tags)
     let data = await fetchWithCache(tags,1000000000000)
-    let newdata = []
-    for (let x = 0; x < data.length - 1; x++) {
-            newquerydata = [...new Set(...data[x])]
-            newdata.push(newquerydata)
-            newdata = [...new Set(...newdata)]
-}
+    let newdata = [...data]
+    newdata = [...new Set(...newdata)]
     if (options.sortBy) {
         if (options.direction === "desc") {
             sortedResponse = data.sort(sortby(`${options.sortBy}`,true,parseInt))
