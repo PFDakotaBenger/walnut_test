@@ -14,6 +14,7 @@ app = express()
 
 router.get('/api/posts', function (req, res) {
     options = req.query
+    console.log(options)
     if (!options.tags) {
         res.status(400);
         res.json({"error":"Tags parameter is required"})
