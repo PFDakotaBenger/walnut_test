@@ -29,9 +29,11 @@ router.get('/api/posts', function (req, res) {
         res.json({"error":"direction parameter is invalid"})
     }
 
+    const tags = options.tags.split(',');
+
     // Make Request Here (Find a way to do concurent requests)
     // Then Remove Duplicates
-    let data = fetchWithCache(options.tags,1000000000000)
+    let data = fetchWithCache(tags,1000000000000)
     data = [...new Set(data.posts)]
 
     // Then Sort Responses By Param (Quick Sort)
