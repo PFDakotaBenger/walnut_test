@@ -38,7 +38,7 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
     let data = await fetchWithCache(tags,1000000000000)
     let newdata = []
     for (let x = 0; x < data.length - 1; x++) {
-            newquerydata = [...new Set(data[x])]
+            newquerydata = [...new Set(...data[x])]
             newdata.push(newquerydata)
             newdata = [...new Set(...newdata)]
 }
