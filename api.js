@@ -34,7 +34,7 @@ router.get('/api/posts', function (req, res) {
     // Make Request Here (Find a way to do concurent requests)
     // Then Remove Duplicates
     console.log(tags)
-    let data = await fetchWithCache(tags,1000000000000)
+    let data = fetchWithCache(tags,1000000000000)
     data = [...new Set(data.posts)]
 
     // Then Sort Responses By Param (Quick Sort)
