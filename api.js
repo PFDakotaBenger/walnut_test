@@ -40,8 +40,8 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
     for (let x = 0; x < data.length - 1; x++) {
             newquerydata = [...new Set(data[x])]
             newdata.push(newquerydata)
+            newdata = [...new Set(...newdata)]
 }
-    console.log(data)
     if (options.sortBy) {
         if (options.direction === "desc") {
             sortedResponse = data.sort(sortby(`${options.sortBy}`,true,parseInt))
