@@ -1,5 +1,5 @@
 // Utils
-const {cache} = require("./api")
+const cache = require("./api")
 
 async function fetchWithCache(id, time) {
   const now = new Date().getTime()
