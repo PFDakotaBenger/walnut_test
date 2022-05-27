@@ -12,7 +12,7 @@ async function fetchWithCache(id, time) {
 async function fetchTagInfo(tags) {
   const data_arr = []
     const promises = await tags.map((tag) => {
-        fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
+        await fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
         return res.json()
     }).then((json) => {
       console.log("json",json)
