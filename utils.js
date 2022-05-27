@@ -16,7 +16,7 @@ async function fetchTagInfo(tags) {
         return res.json()
     }).then((json) => {
       console.log("json",json)
-      return data_arr.push(json)
+      return data_arr.push(json["posts"])
     })
 })
 
