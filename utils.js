@@ -45,4 +45,8 @@ return data_arr
     }
   }
 
-  module.exports = {sortby,fetchWithCache}
+
+  function getUniqueListBy(arr, key) {
+    return [...new Map(arr.map(item => [item[key], item])).values()]
+}
+  module.exports = {sortby,fetchWithCache,getUniqueListBy}
