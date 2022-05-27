@@ -5,6 +5,7 @@ async function fetchWithCache(id, time) {
   const now = new Date().getTime()
   if (!(cache[id] === id)) {
     cache[id] = await fetchTagInfo(id)
+    return cache[id]
 
   } else {return cache[id]}
   } 
@@ -16,7 +17,7 @@ async function fetchTagInfo(tags) {
         return res.json()
     }).then((json) => {
       console.log("json",json)
-      return data_arr.push(json["posts"])
+      data_arr.push(json["posts"])
     })
 })
 await Promise.all(promises)
