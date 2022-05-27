@@ -15,7 +15,8 @@ async function fetchTagInfo(tags) {
         fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
         return res.json()
     }).then((json) => {
-      data_arr.push(json)
+      console.log(json)
+      return data_arr.push(json)
     })
 })
 
