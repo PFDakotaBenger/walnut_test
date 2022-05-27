@@ -1,0 +1,12 @@
+
+{
+    "name": "walnut_assment",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "engines": {
+      "node": "16.x"
+    },
+    "author": "",
+    "license": "ISC"
+  }
