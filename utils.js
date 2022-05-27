@@ -4,14 +4,14 @@ const cache = require("./api")
 async function fetchWithCache(id, time) {
   console.log("here")
   const now = new Date().getTime()
-  if (!cache[id] === id) {
+  if (!(cache[id] === id)) {
     cache[id] = await fetchTagInfo(id)
 
   } else return cache[id]
   } 
 
 async function fetchTagInfo(tags) { 
-  console.log("here")
+  console.log("here fetch")
     const promises = tags.map((tag) => {
         console.log(tag)
         fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
