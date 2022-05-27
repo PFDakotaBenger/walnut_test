@@ -1,4 +1,5 @@
 const express = require('express');
+const asyncHandler = require('express-async-handler')
 const router = express.Router();
 const {sortby, fetchWithCache} = require("./utils")
 const cache = {}
@@ -12,7 +13,7 @@ router.get('/api/ping', function (req, res) {
 app = express()
 
 
-router.get('/api/posts', function (req, res) {
+router.get('/api/posts', asyncHandler(async function (req, res) {
     options = req.query
     console.log(options)
     if (!options.tags) {
@@ -55,7 +56,7 @@ router.get('/api/posts', function (req, res) {
         }
     
     res.json({"posts": sortedResponse});
-  });
+  }));
 
   app.use(router)
   let port = process.env.PORT || 5000;

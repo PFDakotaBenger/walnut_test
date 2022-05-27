@@ -12,7 +12,8 @@
     "chai": "^4.3.4",
     "chai-arrays":"^2.2.0",
     "chai-quantifiers":"^1.0.11",
-    "node-fetch": "^3.2.4"
+    "node-fetch": "^3.2.4",
+    "express-async-handler": "^1.2.0"
   },
   "devDependencies": {},
   "engines": {
