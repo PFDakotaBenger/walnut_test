@@ -1,5 +1,4 @@
 // Utils
-const { response } = require("express");
 const cache = require("./api")
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 async function fetchWithCache(id, time) {
@@ -16,7 +15,7 @@ async function fetchTagInfo(tags) {
   console.log("here fetch")
     const promises = tags.map((tag) => {
         fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
-        response = res.json()
+        let response = res.json()
         data_arr.push(response)
     })
 })
