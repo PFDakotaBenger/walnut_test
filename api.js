@@ -37,7 +37,7 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
     console.log(tags)
     let data = await fetchWithCache(tags,1000000000000)
     data = [...new Set(...data)]
-
+    console.log(data)
     // Then Sort Responses By Param (Quick Sort)
     if (options.sortBy) {
         if (options.direction === "desc") {
