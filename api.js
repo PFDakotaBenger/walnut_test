@@ -18,16 +18,17 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
     console.log(options)
     if (!options.tags) {
         res.status(400);
-        res.json({"error":"Tags parameter is required"})
+        return res.json({"error":"Tags parameter is required"})
     }
 
-    if (!sortByParams.indexOf(options.sortBy)) {
+    if (sortByParams.indexOf(options.sortBy) === -1) {
         res.status(400);
-        res.json({"error":"sortBy parameter is invalid"})
+        return res.json({"error":"sortBy parameter is invalid"})
+        
     } 
 
-    if (!directonParams.indexOf(options.direction)) {
-        res.json({"error":"direction parameter is invalid"})
+    if (directonParams.indexOf(options.direction) === -1) {
+        return res.json({"error":"direction parameter is invalid"})
     }
 
     const tags = options.tags.split(',');
