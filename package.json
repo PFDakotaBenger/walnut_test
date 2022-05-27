@@ -3,7 +3,7 @@
     "name": "walnut_assment",
     "version": "1.0.0",
     "description": "",
-    "main": "app.js",
+    "main": "api.js",
     "engines": {
       "node": "16.x"
     },
