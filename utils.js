@@ -20,7 +20,7 @@ async function fetchTagInfo(tags) {
     })
 })
 
-Promise.all(promises)
+await Promise.all(promises)
 console.log(data_arr)
 return data_arr
 }
