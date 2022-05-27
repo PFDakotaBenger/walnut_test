@@ -13,15 +13,13 @@ async function fetchWithCache(id, time) {
 async function fetchTagInfo(tags) { 
   console.log("here fetch")
     const promises = tags.map((tag) => {
-        console.log(tag)
         fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
-        console.log(res)    
         response = res.json()
-        console.log(response)
     })
 })
 
 const data = await Promise.all(promises)
+console.log(data)
 return data
 }
 
