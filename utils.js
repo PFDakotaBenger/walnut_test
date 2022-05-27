@@ -12,8 +12,11 @@ return cache[id]
 
 async function fetchTagInfo(tags) { 
     const promises = tags.map((tag) => {
+        console.log(tag)
         fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
-            response = res.json()
+        console.log(res)    
+        response = res.json()
+        console.log(response)
     })
 })
 
