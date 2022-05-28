@@ -36,7 +36,7 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
     
     console.log(tags)
     let data = await fetchWithCache(tags,1000000000000)
-    const uniqueArr = [... new Set(data.map(data => data.id))]
+    const uniqueArr = [... new Set(data.flat().map(data => data.id))]
     data = uniqueArr
     if (options.sortBy) {
         if (options.direction === "desc") {
