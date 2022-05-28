@@ -36,7 +36,8 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
     
     console.log(tags)
     let data = await fetchWithCache(tags,1000000000000)
-    data = getUniqueListBy(data, "id")
+    const uniqueArr = [... new Set(data.map(data => data.id))]
+    data = uniqueArr
     if (options.sortBy) {
         if (options.direction === "desc") {
             sortedResponse = data.sort(sortby(`${options.sortBy}`,true,parseInt))
