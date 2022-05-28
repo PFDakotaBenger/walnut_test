@@ -39,7 +39,7 @@ router.get('/api/posts', asyncHandler(async function (req, res) {
     let newData = []
 
     for (let x = 0; x < data.length - 1; x++) {
-        newData.push(data[x])
+        newData.push(...data[x])
     }
 
     data = [...newData]
