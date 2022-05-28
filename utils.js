@@ -20,7 +20,7 @@ await Promise.all(tags.map(async (tag) => {
       console.log("json",json)
       curr_json = json
     })
-    data_arr.push(curr_json)
+    data_arr.push(curr_json["posts"])
 }))
 console.log("arr outside fetch", data_arr)
 return data_arr
