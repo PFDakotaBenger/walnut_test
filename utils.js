@@ -18,7 +18,6 @@ await Promise.all(tags.map(async (tag) => {
         return res.json()
     }).then((json) => {
       console.log("json",json)
-      data_arr.push(json["posts"])
       curr_json = json
     })
     data_arr.push(curr_json)
