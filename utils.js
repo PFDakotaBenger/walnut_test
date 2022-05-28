@@ -12,7 +12,7 @@ async function fetchWithCache(id, time) {
 
 async function fetchTagInfo(tags) {
   const data_arr = []
-  const promises = await tags.map(async (tag) => {
+await Promise.all(tags.map(async (tag) => {
         await fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
         return res.json()
     }).then((json) => {
@@ -20,8 +20,7 @@ async function fetchTagInfo(tags) {
       data_arr.push(json["posts"])
 
     })
-})
-await Promise.all(promises)
+}))
 console.log("arr outside fetch", data_arr)
 return data_arr
 }
