@@ -1,7 +1,6 @@
-// Utils
 const cache = require("./api")
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-async function fetchWithCache(id, time) {
+async function fetchWithCache(id) {
   const now = new Date().getTime()
   if (!(cache[id] === id)) {
     cache[id] = await fetchTagInfo(id)
@@ -17,12 +16,10 @@ await Promise.all(tags.map(async (tag) => {
         await fetch(`https://api.hatchways.io/assessment/blog/posts?tag=${tag}`).then((res) => {
         return res.json()
     }).then((json) => {
-      console.log("json",json)
       curr_json = json
     })
     data_arr.push(curr_json["posts"])
 }))
-console.log("arr outside fetch", data_arr)
 return data_arr
 }
 
